@@ -1,0 +1,43 @@
+.teste {
+    border: 1px solid red;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    background-color: aquamarine;
+    padding: 20px;
+    margin-bottom: 1rem;
+
+    img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.containerInfo {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    p {
+        display: none;
+        border: 1px solid black;
+        padding: 20px;
+    }
+}
+
+.iconRed {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: red;
+}
+
+.containerInfo2 {}
+
+.Link {
+
+    border: 1px solid red;
+    font-weight: bold;
+}

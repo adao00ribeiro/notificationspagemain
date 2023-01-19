@@ -4,8 +4,11 @@ import styles from "./styles.module.scss";
 export function Header() {
     return (
         <header className={styles.header}>
-            <label htmlFor="asa">Notifications 3</label>
-            <Link href={''}>Mark all as read</Link>
+            <div className={styles.containerNotifications}>
+                <label htmlFor="asa">Notifications</label>
+                <p className={styles.notificationsCount}>3</p>
+            </div>
+            <Link className={styles.Link} href={''}>Mark all as read</Link>
         </header >
 
     )

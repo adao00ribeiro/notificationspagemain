@@ -1,10 +1,9 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from './../styles/Home.module.scss'
 import React from 'react'
-import Link from 'next/link'
 import { Header } from '../components/Header'
+import { Card } from '../components/Card'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,19 +18,16 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <Header></Header>
-        <div>
-          <div>
-            <img src='.\assets\images\avatar-mark-webber.webp'></img>
-            <div>
-              <label htmlFor="">Mark Webber</label>
-              <label htmlFor="">reacted to your recent post</label>
-              <label htmlFor="">My first tournament today!</label>
-            </div>
-            <div>
-              <label htmlFor="">1m ago</label>
-            </div>
-          </div>
-        </div>
+        <section className={styles.section}>
+          <Card urlAvatar={'./assets/images/avatar-angela-gray.webp'}></Card>
+          <Card urlAvatar={'./assets/images/avatar-anna-kim.webp'}></Card>
+          <Card urlAvatar={'./assets/images/avatar-jacob-thompson.webp'}></Card>
+          <Card urlAvatar={'./assets/images/avatar-kimberly-smith.webp'}></Card>
+          <Card urlAvatar={'./assets/images/avatar-mark-webber.webp'}></Card>
+          <Card urlAvatar={'./assets/images/avatar-nathan-peterson.webp'}></Card>
+          <Card urlAvatar={'./assets/images/avatar-rizky-hasanuddin.webp'}></Card>
+
+        </section>
       </main>
     </>
   )
