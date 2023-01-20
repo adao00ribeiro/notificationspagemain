@@ -1,13 +1,27 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import styles from './../styles/Home.module.scss'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Header } from '../components/Header'
+import Data from './../data.json'
 import { Card } from '../components/Card'
+import { ICard } from '../interfaces/ICard'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [newData, setNewData] = useState<ICard[]>([]);
+  useEffect(() => {
+    setNewData(Data.data);
+  });
+  const handleButton = () => {
+    setNewData((prev) => {
+      const test = { ...prev, IsRead: true };
+      return test;
+    });
+  }
+
   return (
     <>
       <Head>
@@ -17,16 +31,26 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Header></Header>
+        <Header callback={handleButton}></Header>
         <section className={styles.section}>
-          <Card urlAvatar={'./assets/images/avatar-angela-gray.webp'}></Card>
-          <Card urlAvatar={'./assets/images/avatar-anna-kim.webp'}></Card>
-          <Card urlAvatar={'./assets/images/avatar-jacob-thompson.webp'}></Card>
-          <Card urlAvatar={'./assets/images/avatar-kimberly-smith.webp'}></Card>
-          <Card urlAvatar={'./assets/images/avatar-mark-webber.webp'}></Card>
-          <Card urlAvatar={'./assets/images/avatar-nathan-peterson.webp'}></Card>
-          <Card urlAvatar={'./assets/images/avatar-rizky-hasanuddin.webp'}></Card>
-
+          {newData.map(item => {
+            return (
+              <Card
+                key={item.id}
+                id={item.id}
+                EStatus={item.EStatus}
+                urlAvatar={item.urlAvatar}
+                name={item.name}
+                text1={item.text1}
+                text2={item.text2}
+                IsRead={item.IsRead}
+                picture={item.picture}
+                date={item.date}
+                message={item.message}
+              ></Card>
+            )
+          })
+          }
         </section>
       </main>
     </>
