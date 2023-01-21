@@ -1,8 +1,29 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { ICard, EStatus } from "../../interfaces/ICard";
+import { useEffect, useRef } from "react";
 
 export function Card(props: ICard) {
+    const navRef = useRef<HTMLDivElement>();
+    useEffect(() => {
+
+        setClassDiv();
+
+    }, []);
+    const showNavBar = (string: string) => {
+        if (navRef.current) {
+            navRef.current.classList.toggle(string, true)
+        }
+    }
+    function setClassDiv() {
+        if (props.IsRead) {
+            showNavBar(styles.iconRedOff);
+        } else {
+            showNavBar(styles.iconRedOn);
+        }
+    }
+    setClassDiv();
+
     return (
         <>
             <div className={styles.container}>
@@ -15,7 +36,7 @@ export function Card(props: ICard) {
                                     {" " + props.text1 + " "}
                                     <Link className={styles.Link} href={""}>{props.text2}</Link>
                                 </span>
-                                <div className={!props.IsRead ? styles.iconRedOn : styles.iconRedOff} ></div>
+                                <div ref={navRef} ></div>
                             </div>
                             <div className={styles.containerDate}>
                                 <label htmlFor="">{props.date}</label>

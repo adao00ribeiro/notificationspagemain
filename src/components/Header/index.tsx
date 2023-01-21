@@ -1,15 +1,18 @@
 import { SendHandle } from "child_process";
 import Link from "next/link";
 import styles from "./styles.module.scss";
-
-export function Header({ callback }) {
+interface IHeader {
+    callback,
+    count: number
+}
+export function Header(props: IHeader) {
     return (
         <header className={styles.header}>
             <div className={styles.containerNotifications}>
-                <label htmlFor="asa">Notifications</label>
-                <p className={styles.notificationsCount}>3</p>
+                <label htmlFor="">Notifications</label>
+                <p className={styles.notificationsCount}>{props.count}</p>
             </div>
-            <button className={styles.Link} onClick={callback}>Mark all as read</button>
+            <button className={styles.Link} onClick={props.callback}>Mark all as read</button>
         </header >
 
     )

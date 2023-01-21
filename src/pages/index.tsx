@@ -12,14 +12,32 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [newData, setNewData] = useState<ICard[]>([]);
+  const [countNotif, setContNotif] = useState(0);
+
   useEffect(() => {
     setNewData(Data.data);
-  });
-  const handleButton = () => {
-    setNewData((prev) => {
-      const test = { ...prev, IsRead: true };
-      return test;
+    setContNotif(GetCountList(Data.data));
+  }, []);
+  function GetCountList(list: ICard[]) {
+    var c = 0;
+
+    list.forEach(element => {
+      if (!element.IsRead) {
+        c++;
+      }
     });
+    return c;
+  }
+
+  const handleButton = () => {
+    const newList = newData.map((item) => {
+      const updatedItem = {
+        ...item, IsRead: true,
+      };
+      return updatedItem;
+    });
+    setNewData(newList);
+    setContNotif(GetCountList(newList));
   }
 
   return (
@@ -31,7 +49,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Header callback={handleButton}></Header>
+        <Header callback={handleButton} count={countNotif}></Header>
         <section className={styles.section}>
           {newData.map(item => {
             return (
