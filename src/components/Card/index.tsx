@@ -1,32 +1,35 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { ICard, EStatus } from "../../interfaces/ICard";
-import { useEffect, useRef } from "react";
+import { MutableRefObject, useEffect, useRef } from "react";
 
 export function Card(props: ICard) {
     const navRef = useRef<HTMLDivElement>();
+    const divContainerRef = useRef<HTMLDivElement>();
     useEffect(() => {
 
         setClassDiv();
 
     }, []);
-    const showNavBar = (string: string) => {
-        if (navRef.current) {
-            navRef.current.classList.toggle(string, true)
+    const showDivContainerRef = (div: MutableRefObject<HTMLDivElement>, string: string) => {
+        if (div.current) {
+            div.current.classList.toggle(string, true)
         }
     }
     function setClassDiv() {
         if (props.IsRead) {
-            showNavBar(styles.iconRedOff);
+            showDivContainerRef(navRef, styles.iconRedOff);
+            showDivContainerRef(divContainerRef, styles.containerColorOff);
         } else {
-            showNavBar(styles.iconRedOn);
+            showDivContainerRef(navRef, styles.iconRedOn);
+            showDivContainerRef(divContainerRef, styles.containerColorOn);
         }
     }
     setClassDiv();
 
     return (
         <>
-            <div className={styles.container}>
+            <div className={styles.container} ref={divContainerRef} >
                 <img src={props.urlAvatar}></img>
                 <div className={styles.containerRight}>
                     <div className={styles.containerRight2}>
@@ -53,7 +56,9 @@ export function Card(props: ICard) {
                         </Link>
                     }
                 </div>
+
             </div>
+
         </>
     )
 }
