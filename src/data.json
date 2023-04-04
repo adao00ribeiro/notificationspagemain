@@ -3,7 +3,7 @@
         {
             "id": 0,
             "EStatus": 0,
-            "urlAvatar": "assets/images/avatar-mark-webber.webp",
+            "urlAvatar": "/assets/images/avatar-mark-webber.webp",
             "name": "Mark Webber",
             "text1": "reacted to your recent post",
             "text2": "My first tournament today!",
@@ -15,7 +15,7 @@
         {
             "id": 1,
             "EStatus": 0,
-            "urlAvatar": "assets/images/avatar-angela-gray.webp",
+            "urlAvatar": "/assets/images/avatar-angela-gray.webp",
             "name": "Angela Gray",
             "text1": "followed you",
             "text2": "My first tournament today!",
@@ -27,7 +27,7 @@
         {
             "id": 2,
             "EStatus": 0,
-            "urlAvatar": "assets/images/avatar-jacob-thompson.webp",
+            "urlAvatar": "/assets/images/avatar-jacob-thompson.webp",
             "name": "Jacob Thompson",
             "text1": "has joined your group Chess Club",
             "text2": "",
@@ -39,7 +39,7 @@
         {
             "id": 3,
             "EStatus": 2,
-            "urlAvatar": "assets/images/avatar-rizky-hasanuddin.webp",
+            "urlAvatar": "/assets/images/avatar-rizky-hasanuddin.webp",
             "name": "Rizky Hasanuddin",
             "text1": "sent you a private message",
             "text2": "",
@@ -51,19 +51,19 @@
         {
             "id": 4,
             "EStatus": 1,
-            "urlAvatar": "assets/images/avatar-kimberly-smith.webp",
+            "urlAvatar": "/assets/images/avatar-kimberly-smith.webp",
             "name": "Kimberly Smith",
             "text1": "commented on your picture",
             "text2": "",
             "IsRead": true,
-            "picture": "assets/images/image-chess.webp",
+            "picture": "/assets/images/image-chess.webp",
             "date": "2 weeks ago",
             "message": ""
         },
         {
             "id": 5,
             "EStatus": 0,
-            "urlAvatar": "assets/images/avatar-nathan-peterson.webp",
+            "urlAvatar": "/assets/images/avatar-nathan-peterson.webp",
             "name": "Nathan Peterson",
             "text1": "reacted to your recent post",
             "text2": "5 end-game strategies to increase your win rate",
@@ -75,7 +75,7 @@
         {
             "id": 6,
             "EStatus": 0,
-            "urlAvatar": "assets/images/avatar-anna-kim.webp",
+            "urlAvatar": "/assets/images/avatar-anna-kim.webp",
             "name": "Anna Kim",
             "text1": "left the group",
             "text2": "Chess Club",

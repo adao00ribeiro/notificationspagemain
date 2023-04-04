@@ -1,21 +1,14 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./styles.module.scss";
 import { ICard, EStatus } from "../../interfaces/ICard";
 import { MutableRefObject, useEffect, useRef } from "react";
+import React from "react";
 
 export function Card(props: ICard) {
     const navRef = useRef<HTMLDivElement>();
-    const divContainerRef = useRef<HTMLDivElement>();
-    useEffect(() => {
-
-        setClassDiv();
-
-    }, []);
-    const showDivContainerRef = (div: MutableRefObject<HTMLDivElement>, string: string) => {
-        if (div.current) {
-            div.current.classList.toggle(string, true)
-        }
-    }
+    const divContainerRef =
+        useRef<HTMLDivElement>();
     function setClassDiv() {
         if (props.IsRead) {
             showDivContainerRef(navRef, styles.iconRedOff);
@@ -25,12 +18,29 @@ export function Card(props: ICard) {
             showDivContainerRef(divContainerRef, styles.containerColorOn);
         }
     }
+    const showDivContainerRef = (div: MutableRefObject<HTMLDivElement>, string: string) => {
+        if (div.current) {
+            div.current.classList.toggle(string, true)
+        }
+    }
+    const createCallback = React.useCallback(() => {
+        setClassDiv();
+    }, [setClassDiv]);
+    useEffect(() => {
+
+        createCallback();
+
+    }, [createCallback]);
+
+
     setClassDiv();
 
     return (
         <>
             <div className={styles.container} ref={divContainerRef} >
-                <img src={props.urlAvatar}></img>
+                <div className={styles.containerAvatar}>
+                    <Image src={props.urlAvatar} fill alt={"avatar"}></Image>
+                </div>
                 <div className={styles.containerRight}>
                     <div className={styles.containerRight2}>
                         <div className={styles.containerMain2}>
@@ -46,18 +56,20 @@ export function Card(props: ICard) {
                             </div>
                         </div>
                         {props.EStatus == EStatus["PICTURE"] &&
-                            <img src={props.picture} alt="" />
+                            <div className={styles.containerPicture}>
+                                <Image src={props.picture} fill alt="" />
+                            </div>
                         }
                     </div>
                     {props.EStatus === EStatus["MESSAGE"] &&
                         <Link className={styles.containerMessage} href={""}>
-                            Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and
-                            I'm already having lots of fun and improving my game.
+                            Hello, thanks for setting up the Chess Club. Ive been a member for a few weeks now and
+                            Im already having lots of fun and improving my game.
                         </Link>
                     }
                 </div>
 
-            </div>
+            </div >
 
         </>
     )
