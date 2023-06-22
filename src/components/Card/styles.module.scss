@@ -1,24 +1,16 @@
 .container {
-
     display: flex;
     flex-direction: row;
-
     color: black;
     padding: 10px;
-
     margin-bottom: 20px;
     border-radius: 10px;
-
-
-
-
 }
 
 .containerAvatar {
     width: 50px;
     height: 50px;
     position: relative;
-
 
     Image {
 
@@ -36,16 +28,14 @@
     background-color: transparent;
 }
 
-.containerRight {
+.containerInfo {
     width: 100%;
     display: flex;
     flex-direction: column;
-
     padding-left: 10px;
-
 }
 
-.containerRight2 {
+.containerInfoTop {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -54,31 +44,39 @@
 
 }
 
-.containerMain2 {
+.containerInfoBottom {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid var(--Light-grayish-blue-2);
+}
 
+.groupInfo {
+    width: 90%;
     display: flex;
     flex-direction: column;
 
 
 }
 
-.containerInfo {
+.groupInfoTop {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
 
     span {
+        width: 100%;
         font-size: 0.8rem;
     }
-
 }
 
 .iconRedOn {
+    display: inline-block;
     background-color: var(--Red);
-    width: 7px;
-    height: 7px;
-    border-radius: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 14px;
+    margin-left: 5px;
 }
 
 .iconRedOff {
@@ -108,9 +106,113 @@
     height: 50px;
 }
 
-.containerMessage {
-    margin-top: 10px;
-    padding: 10px;
-    border: 1px solid var(--Light-grayish-blue-2);
+@media screen and (max-width:1040px) {
 
+    .container {
+        display: flex;
+        flex-direction: row;
+        color: black;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+
+    .containerAvatar {
+        width: 50px;
+        height: 50px;
+        position: relative;
+
+        Image {
+
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    .containerColorOn {
+        background-color: var(--Very-light-grayish-blue);
+    }
+
+    .containerColorOff {
+        background-color: transparent;
+    }
+
+    .containerInfo {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-left: 10px;
+    }
+
+    .containerInfoTop {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+
+    }
+
+    .containerInfoBottom {
+        margin-top: 10px;
+        padding: 10px;
+        border: 1px solid var(--Light-grayish-blue-2);
+    }
+
+    .groupInfo {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+
+
+    }
+
+    .groupInfoTop {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+
+        span {
+            width: 100%;
+            font-size: 0.8rem;
+        }
+    }
+
+    .iconRedOn {
+        display: inline-block;
+        background-color: var(--Red);
+        width: 10px;
+        height: 10px;
+        border-radius: 14px;
+        margin-left: 5px;
+    }
+
+    .iconRedOff {
+        display: none;
+    }
+
+    .Link {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    .Link:hover {
+        color: var(--Blue);
+    }
+
+    .containerDate {
+        margin-top: 6px;
+
+        label {
+            font-size: 0.8rem;
+        }
+    }
+
+    .containerPicture {
+        position: relative;
+        width: 50px;
+        height: 50px;
+    }
 }
